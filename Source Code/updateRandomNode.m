@@ -1,5 +1,7 @@
-   % fnc to correct nodes in matrix memory
-   %YOU MUST WRITE THIS FUNCTION
-   function [vec,delta] = updateRandomNode(MatrixMem,vec)
-     delta=0; %count how many nodes change their values
-    
+% fnc to correct nodes in matrix memory
+% ! Function completed
+function [vec, delta] = updateRandomNode(MatrixMem, vec)
+    indexing = random('unid', length(vec));
+    difference = vec(indexing);
+    vec(indexing) = sign(MatrixMem(indexing, :) * vec);
+    delta = abs(difference - vec(indexing)) / 2;
