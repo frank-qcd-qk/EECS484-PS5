@@ -2,6 +2,6 @@
 % ! Function completed
 function [vec, delta] = updateRandomNode(MatrixMem, vec)
     indexing = unidrnd(length(vec));
-    difference = vec(indexing);
+    temp = vec(indexing);
     vec(indexing) = sign(MatrixMem(indexing, :) * vec);
-    delta = abs(difference - vec(indexing)) / 2;
+    delta = abs(temp - vec(indexing)) / 2;
